@@ -11,6 +11,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'ListNew',
   data(){
@@ -32,34 +33,38 @@ export default {
 <style scoped>
 .listUl{
     max-width: 1800px;
-    margin:0 auto;
+    margin: 0 auto;
+    padding: 76px 60px 0;
     overflow: hidden;
-    height: 390px;
-    margin-top: 20px;
+    height: 340px;
 }
 .listLi{
     float: left;
-    width: 554px;
+    width: 33.33%;
     box-sizing: border-box;
-    padding-right: 10px;
-    text-align: center;
-    margin-right: 40px
+    padding: 0 20px;
 }
 .listLi:nth-child(1) div{
-    width: 554px;
-    height: 330px;
-    background: url("https://t1.kakaocdn.net/kakaocorp/admin/main-banner/94")
+    width: 100%;
+    height: 241px;
+    background: url("https://t1.kakaocdn.net/kakaocorp/admin/main-banner/94");
+    background-size: cover
     /* background: url("../assets/logo.png") */
 }
 .listLi:nth-child(2) div{
-    width: 554px;
-    height: 330px;
-    background: url("https://t1.kakaocdn.net/kakaocorp/admin/main-banner/95")
+    width: 100%;
+    height: 241px;
+    background: url("https://t1.kakaocdn.net/kakaocorp/admin/main-banner/95");
+    background-size: cover
 }
 .listLi:nth-child(3) div{
-    width: 554px;
-    height: 330px;
-    background: url("https://t1.kakaocdn.net/kakaocorp/operating/co/main-content/3254.png")
+    width: 100%;
+    height: 241px;
+    background: url("https://t1.kakaocdn.net/kakaocorp/operating/co/main-content/3254.png") ;
+    background-size: cover
+}
+.listLi h3{
+    margin-top: 20px;
 }
 .newsImg a{
     display: inline-block;

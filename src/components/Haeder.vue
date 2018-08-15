@@ -1,5 +1,5 @@
 <template>
-      <div class="header" @mouseover="changeBgW" @mouseleave="changeBgT" @scroll="changeBgW" :style="{background:color}">
+      <div class="header" @mouseover="changeBgW" @mouseleave="changeBgT" @scroll="scrollFn(e)" :style="{background:color}">
         <nav>
             <ul class="navUl">
                 <li>菜单1</li>
@@ -19,31 +19,36 @@ export default {
     }
   },
   methods:{
-      changeBgW:function(e){
+      changeBgW:function(){
               this.color = "#fff";
-              e = e || window.event;  
-                if (e.wheelDelta) {  //第一步：先判断浏览器IE，谷歌滑轮事件               
-                    if (e.wheelDelta > 0) { //当滑轮向上滚动时  
-                        console.log("滑轮向上滚动");  
-                    }  
-                    if (e.wheelDelta < 0) { //当滑轮向下滚动时  
-                        console.log("滑轮向下滚动");  
-                    }  
-                } else if (e.detail) {  //Firefox滑轮事件  
-                    if (e.detail> 0) { //当滑轮向上滚动时  
-                        console.log("滑轮向上滚动");  
-                    }  
-                    if (e.detail< 0) { //当滑轮向下滚动时  
-                        console.log("滑轮向下滚动");  
-                    }  
-                }  
       },
       changeBgT:function(){
               this.color = "transparent"
+      },
+      scrollFn:function(e){
+                e = e || window.event;  
+                if (e.wheelDelta) {                
+                    if (e.wheelDelta > 0) { 
+                         this.color = "transparent"
+                    }  
+                    if (e.wheelDelta < 0) { 
+                        this.color = "#fff";
+                    }  
+                } else if (e.detail) {  
+                    if (e.detail> 0) {
+                        this.color = "transparent"
+                    }  
+                    if (e.detail< 0) {
+                        this.color = "#fff";
+                    }  
+                }  
       }
   },
    created() {
-        window.addEventListener('scroll', this.changeBgW);
+        if (document.addEventListener) {//firefox  
+                document.addEventListener('DOMMouseScroll', this.scrollFn, false);  
+            }  
+       window.onmousewheel = document.onmousewheel = this.scrollFn;
     },
 }
 </script>
